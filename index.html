@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aerolínea Code Brigade - Reserva tu vuelo</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: #f0f4f8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(to right, #2193b0, #6dd5ed);
+        padding: 1.5rem;
+        text-align: center;
+        color: white;
+        animation: fadeIn 1s ease;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+
+      nav {
+        background: #ffffff;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #2193b0;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #1b7b97;
+      }
+
+      .login-btn {
+        padding: 0.5rem 1rem;
+        border: 2px solid #2193b0;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .login-btn:hover {
+        background-color: #2193b0;
+        color: white;
+      }
+
+      section {
+        padding: 3rem 2rem;
+        max-width: 1000px;
+        margin: auto;
+        animation: slideUp 0.8s ease;
+      }
+
+      .form-container {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-container h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+      }
+
+      form {
+        display: grid;
+        gap: 1rem;
+      }
+
+      input,
+      select {
+        padding: 0.8rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+      }
+
+      button {
+        padding: 0.9rem;
+        background-color: #2193b0;
+        color: white;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #1b7b97;
+      }
+
+      .success-message {
+        display: none;
+        margin-top: 1rem;
+        padding: 1rem;
+        background-color: #d4edda;
+        border-left: 5px solid #28a745;
+        border-radius: 0.5rem;
+        color: #155724;
+        animation: fadeIn 1s ease;
+      }
+
+      .info-section,
+      .about-section {
+        background-color: #ffffff;
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-section h2,
+      .about-section h2 {
+        color: #2c3e50;
+        margin-top: 0;
+      }
+
+      .hero-header {
+        position: relative;
+        height: 400px;
+        background-image: url("Cardio - Abril 2025.png");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      .hero-overlay {
+        background: rgba(0, 0, 0, 0.4);
+        /* oscurece imagen */
+        padding: 2rem;
+        border-radius: 1rem;
+        text-align: center;
+        animation: fadeIn 1.2s ease-in-out;
+      }
+
+      .hero-overlay h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero-overlay p {
+        font-size: 1.3rem;
+      }
+
+      footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 2rem 1rem;
+        margin-top: 3rem;
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 600px) {
+        nav {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="hero-header">
+      <div class="hero-overlay">
+        <h1>Code Brigade Airlines</h1>
+        <p>Descubre el mundo con nosotros ✈️</p>
+      </div>
+    </header>
+
+    <nav>
+      <div class="nav-left">
+        <a href="#reserva">Reserva</a>
+        <a href="#info">Sobre Nosotros</a>
+        <a href="#beneficios">Beneficios</a>
+      </div>
+      <div class="nav-right">
+        <a href="#login" class="login-btn">Iniciar sesión</a>
+        <!--<a href="#login" class="login-btn">Registrarse</a>-->
+      </div>
+    </nav>
+
+    <section id="reserva">
+      <div class="form-container">
+        <h2>Reserva tu vuelo</h2>
+        <form id="flightForm">
+          <input type="text" placeholder="Ciudad de origen" required />
+          <input type="text" placeholder="Destino" required />
+          <input type="date" required />
+          <select>
+            <option value="">Cantidad de pasajeros</option>
+            <option>1 pasajero</option>
+            <option>2 pasajeros</option>
+            <option>3 pasajeros</option>
+            <option>4 o más</option>
+          </select>
+          <button type="submit">Buscar vuelos</button>
+        </form>
+        <div class="success-message" id="successMsg">
+          ✅ ¡Reserva enviada! Recibirás un correo con los detalles.
+        </div>
+      </div>
+    </section>
+
+    <section id="info" class="about-section">
+      <h2>Sobre Code Brigade Airlines</h2>
+      <div
+        style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center"
+      >
+        <div style="flex: 1">
+          <p>
+            Fundada en 1995, Code Brigade es una aerolínea global que conecta más de
+            80 destinos en 5 continentes. Nuestra misión es ofrecer viajes
+            cómodos, seguros y sostenibles con un toque humano.
+          </p>
+          <p>
+            Con más de 300 aviones modernos y un equipo de profesionales
+            dedicados, Code Brigade ha sido galardonada por su servicio al cliente y
+            puntualidad.
+          </p>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1589395937772-cbe6043f0c23?auto=format&fit=crop&w=500&q=80"
+          alt="Tripulación de aerolínea"
+          style="width: 300px; border-radius: 1rem; flex-shrink: 0"
+        />
+      </div>
+    </section>
+
+    <section id="beneficios" class="info-section">
+      <h2>¿Por qué elegirnos?</h2>
+      <ul style="list-style: none; padding-left: 0">
+        <li>✈️ Asientos cómodos y con espacio extra</li>
+        <li>📶 Conexión Wi-Fi gratuita en la mayoría de rutas</li>
+        <li>🌍 Atención 24/7 en múltiples idiomas</li>
+        <li>💼 Membresía FlyClub con beneficios exclusivos</li>
+        <li>🔄 Política flexible de cambios y cancelaciones</li>
+      </ul>
+    </section>
+
+    <footer>
+      &copy; 2025 Code Brigade Airlines. Todos los derechos reservados.
+    </footer>
+
+    <script>
+      const form = document.getElementById("flightForm");
+      const successMsg = document.getElementById("successMsg");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        successMsg.style.display = "block";
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
