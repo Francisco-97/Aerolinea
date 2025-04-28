@@ -215,6 +215,49 @@
           gap: 1rem;
         }
       }
+
+      .booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  background: #2193b0;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #176d85;
+}
+
     </style>
   </head>
 
@@ -233,7 +276,7 @@
         <a href="#beneficios">Beneficios</a>
       </div>
       <div class="nav-right">
-        <a href="#login" class="login-btn">Iniciar sesión</a>
+        <a href="RegistroInicio.html" class="login-btn">Iniciar sesión</a>
         <!--<a href="#login" class="login-btn">Registrarse</a>-->
       </div>
     </nav>
@@ -242,23 +285,44 @@
       <div class="form-container">
         <h2>Reserva tu vuelo</h2>
         <form id="flightForm">
-          <input type="text" placeholder="Ciudad de origen" required />
-          <input type="text" placeholder="Destino" required />
-          <input type="date" required />
-          <select>
-            <option value="">Cantidad de pasajeros</option>
-            <option>1 pasajero</option>
-            <option>2 pasajeros</option>
-            <option>3 pasajeros</option>
-            <option>4 o más</option>
-          </select>
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="destino">Destino</label>
+            <input type="text" id="destino" name="destino" required />
+          </div>
+          <div class="form-group">
+            <label for="fecha">Salida</label>
+            <input type="date" id="fecha" name="fecha" required />
+          </div>
+          <div class="form-group">
+            <label for="fecha">Regreso</label>
+            <input type="date" id="fecha" name="fecha" required />
+          </div>
+          <div class="form-group">
+            <label for="pasajeros">Cantidad de pasajeros</label>
+            <select>
+              <option>1 pasajero</option>
+              <option>2 pasajeros</option>
+              <option>3 pasajeros</option>
+              <option>4 o más</option>
+            </select>
+          </div>
           <button type="submit">Buscar vuelos</button>
         </form>
-        <div class="success-message" id="successMsg">
-          ✅ ¡Reserva enviada! Recibirás un correo con los detalles.
-        </div>
+        
       </div>
     </section>
+
+    <div class="success-message" id="successMsg">
+      ✅ ¡Reserva enviada! Recibirás un correo con los detalles.
+    </div>
 
     <section id="info" class="about-section">
       <h2>Sobre Code Brigade Airlines</h2>
